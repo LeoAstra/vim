@@ -3,7 +3,7 @@ syntax on
 filetype plugin indent on
 call pathogen#helptags()
 
-
+set showcmd
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -113,3 +113,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "add indentation line bros
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 0
+
+autocmd Filetype c,cpp  inoremap <buffer> <F5> <C-o>:update<Bar>execute '!make '.shellescape(expand('%:r'), 1)<CR>
